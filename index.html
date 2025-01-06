@@ -1,9 +1,150 @@
-<!Doctype html>
-<html>
-  <body>
-    <h1> homepage
-    </h1>
-    <p> Website intro</p>
-  </body>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | CS Education & Web Development</title>
+    <style>
+        :root {
+            --color-sage: #94AE89;
+            --color-mint: #A8BCA1;
+            --color-lime: #C0DA74;
+            --color-seafoam: #BEEDAA;
+            --color-frost: #D5FFD9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--color-sage), var(--color-mint));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: var(--color-frost);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .role {
+            color: var(--color-lime);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .card h2 {
+            color: var(--color-seafoam);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--color-frost);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .role {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, I'm Sarah</h1>
+        <div class="role">CS Curriculum Designer & Web Developer</div>
+        
+        <div class="content">
+            <div class="card">
+                <h2>Curriculum Design</h2>
+                <p>Creating engaging and effective computer science curricula that inspire the next generation of developers.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Web Development</h2>
+                <p>Building elegant, responsive, and user-centered web applications with modern technologies.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Teaching</h2>
+                <p>Empowering students with the knowledge and skills they need to succeed in the digital world.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    const xPercent = (x / rect.width - 0.5) * 10;
+                    const yPercent = (y / rect.height - 0.5) * 10;
+                    card.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) scale(1.02)`;
+                } else {
+                    card.style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>
