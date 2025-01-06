@@ -85,7 +85,7 @@ h1 {
 
 .nav {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 2rem;
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.1);
@@ -106,7 +106,7 @@ h1 {
 .nav a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--color-lime);
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
 }
 
 @media (max-width: 768px) {
