@@ -8,11 +8,19 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="#top">Home</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#ux">UX Case Studies</a>
-        <a href="#studio">Studio Work</a>
-        <a href="#contact">Contact</a>
+        <a href="#top" class="nav-icon">M. Burton</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#top">Home</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#ux">UX Case Studies</a>
+            <a href="#studio">Studio Work</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
     
     <div id="top" class="main-content">
@@ -24,7 +32,7 @@
               <div class="role">CS Curriculum Designer, UX Developer, & Artist</div>
                 <div class="mission-text">
                     <p>Where code meets creation – transforming computational thinking into artful problem-solving.</p>
-                    <p>I bridge the worlds of computer science, fine arts, and user experience design to create learning experiences that reveal the natural patterns connecting these disciplines. My mission is to make programming accessible as a creative tool, empowering students to solve problems that matter to them.</p>
+                    <p>I bridge the worlds of computer science, fine arts, and user experience design to create learning experiences that reveal the natural patterns connecting these fields. My goal is to make programming accessible as a creative tool, empowering students to solve problems that matter to them.</p>
                   </div>
                   </div>
                 <div class="profile-image">
@@ -87,12 +95,41 @@
     <section id="contact" class="section">
         <div class="section-content">
             <h2>Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            <p class="contact-intro">Want to get in touch? Send me an email. I'd love</p>
+            
+            <form class="contact-form" action="mailto:madeline.burton@gmail.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Select a topic...</option>
+                        <option value="teaching">Teaching Collaboration</option>
+                        <option value="ux">UX Project</option>
+                        <option value="art">Art Installation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
-        <div class="section-image">
+        <!-- <div class="section-image">
             <img src="https://images.unsplash.com/photo-1735405659018-b63cdfc215de?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Contact image">
-        </div>
+        </div> -->
     </section>
 
     <script>
@@ -136,6 +173,22 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             });
         });
     </script>
