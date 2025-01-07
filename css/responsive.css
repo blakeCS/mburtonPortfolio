@@ -1,0 +1,79 @@
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+        min-height: calc(100vh - 240px);
+    }
+
+    .nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(47, 79, 79, 0.98);
+        backdrop-filter: blur(10px);
+        transition: top 0.3s ease;
+        padding: 4rem 2rem;
+        gap: 1.5rem;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        top: 0;
+    }
+
+    .nav-links a {
+        background: none;
+        box-shadow: none;
+        font-size: 1.2rem;
+        width: 200px;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-icon {
+        z-index: 1001;
+        font-size: 1.4rem;
+        padding-left: 0.5rem;
+    }
+
+    .section {
+        flex-direction: column !important;
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .section-image img {
+        height: 300px;
+    }
+
+    .intro-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .mission-text {
+        padding-right: 0;
+    }
+
+    .profile-image {
+        flex: 0 0 150px;
+        height: 150px;
+        margin: 0;
+    }
+} 
