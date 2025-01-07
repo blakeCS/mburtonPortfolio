@@ -21,8 +21,15 @@ h1 {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.section p {
+.section h3 {
     color: var(--color-seafoam);
-    line-height: 1.8;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section p, .footer p{
+    color: var(--color-seafoam);
+    line-height: 1.5;
     font-size: 1.1rem;
-} 
+}
